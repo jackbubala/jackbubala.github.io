@@ -6,16 +6,14 @@
     <description>Recent content in R on Jack Bubala&#39;s Github Site</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 01 Dec 2020 21:13:14 -0500</lastBuildDate><atom:link href="http://jackbubala.github.io/categories/r/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 04 Apr 2021 00:00:00 +0000</lastBuildDate><atom:link href="http://jackbubala.github.io/categories/r/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Hello R Markdown</title>
-      <link>http://jackbubala.github.io/2020/12/01/hello-r-markdown/</link>
-      <pubDate>Tue, 01 Dec 2020 21:13:14 -0500</pubDate>
+      <title>The Chicago Bears Are Now On The Clock</title>
+      <link>http://jackbubala.github.io/2021/04/04/the-chicago-bears-are-now-on-the-clock/</link>
+      <pubDate>Sun, 04 Apr 2021 00:00:00 +0000</pubDate>
       
-      <guid>http://jackbubala.github.io/2020/12/01/hello-r-markdown/</guid>
-      <description>R Markdown This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see http://rmarkdown.rstudio.com.
-You can embed an R code chunk like this:
-summary(cars) ## speed dist ## Min. : 4.0 Min. : 2.00 ## 1st Qu.:12.0 1st Qu.: 26.00 ## Median :15.0 Median : 36.00 ## Mean :15.4 Mean : 42.</description>
+      <guid>http://jackbubala.github.io/2021/04/04/the-chicago-bears-are-now-on-the-clock/</guid>
+      <description>After a mediocre at best 8-8 season, the Chicago Bears let their once thought to be franchise quarterback, Mitchell Trubisky, walk and become a free agent. A move expected by many brought a wave of excitement as rumors of Russell Wilson started swirling, leading Bears fans to believe that they may finally have found their guy. Instead, Wilson is staying in Seattle and Andy Dalton is coming to Chicago after leading an above-average Cowboys team to a below-average season.</description>
     </item>
     
   </channel>

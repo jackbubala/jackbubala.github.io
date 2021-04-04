@@ -6,7 +6,16 @@
     <description>Recent content on Jack Bubala&#39;s Github Site</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 16 Mar 2021 00:00:00 +0000</lastBuildDate><atom:link href="http://jackbubala.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 04 Apr 2021 00:00:00 +0000</lastBuildDate><atom:link href="http://jackbubala.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>The Chicago Bears Are Now On The Clock</title>
+      <link>http://jackbubala.github.io/2021/04/04/the-chicago-bears-are-now-on-the-clock/</link>
+      <pubDate>Sun, 04 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>http://jackbubala.github.io/2021/04/04/the-chicago-bears-are-now-on-the-clock/</guid>
+      <description>After a mediocre at best 8-8 season, the Chicago Bears let their once thought to be franchise quarterback, Mitchell Trubisky, walk and become a free agent. A move expected by many brought a wave of excitement as rumors of Russell Wilson started swirling, leading Bears fans to believe that they may finally have found their guy. Instead, Wilson is staying in Seattle and Andy Dalton is coming to Chicago after leading an above-average Cowboys team to a below-average season.</description>
+    </item>
+    
     <item>
       <title>The State of the Chicago Bears</title>
       <link>http://jackbubala.github.io/about/</link>
@@ -14,45 +23,6 @@
       
       <guid>http://jackbubala.github.io/about/</guid>
       <description>Hello everyone and welcome to the state of the Chicago Bears. Throughout this blog I will be going over the difficult decision that lies in front of Ryan Pace, picking the right quarterback to lead the Bears into the future. It seems as though he&amp;rsquo;s already made his decision, having recently signed Andy Dalton. In this blog post I will be going over whether Pace made the right choice as well as what college quarterback should be drafted in order to be Dalton&amp;rsquo;s mentee that will someday be able to bring the Bears back to the Super Bowl.</description>
-    </item>
-    
-    <item>
-      <title>The State of the Chicago Bears</title>
-      <link>http://jackbubala.github.io/2021/03/16/the-state-of-the-chicago-bears/</link>
-      <pubDate>Tue, 16 Mar 2021 00:00:00 +0000</pubDate>
-      
-      <guid>http://jackbubala.github.io/2021/03/16/the-state-of-the-chicago-bears/</guid>
-      <description>A couple of months ago the Bears finished with a mediocre at best 8-8 season and a first-round exit in the playoffs against the Saints. Now after proving to the McCaskey’s that they are worthy of their jobs, Ryan Pace and Matt Nagy have been given, hopefully, one last chance to bring the franchicse back to it’s success in 2018. The success they had in 1985 or even 2006 would be much more appreciated though.</description>
-    </item>
-    
-    <item>
-      <title>Hello R Markdown</title>
-      <link>http://jackbubala.github.io/2020/12/01/hello-r-markdown/</link>
-      <pubDate>Tue, 01 Dec 2020 21:13:14 -0500</pubDate>
-      
-      <guid>http://jackbubala.github.io/2020/12/01/hello-r-markdown/</guid>
-      <description>R Markdown This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see http://rmarkdown.rstudio.com.
-You can embed an R code chunk like this:
-summary(cars) ## speed dist ## Min. : 4.0 Min. : 2.00 ## 1st Qu.:12.0 1st Qu.: 26.00 ## Median :15.0 Median : 36.00 ## Mean :15.4 Mean : 42.</description>
-    </item>
-    
-    <item>
-      <title>A Plain Markdown Post</title>
-      <link>http://jackbubala.github.io/2016/12/30/a-plain-markdown-post/</link>
-      <pubDate>Fri, 30 Dec 2016 21:49:57 -0700</pubDate>
-      
-      <guid>http://jackbubala.github.io/2016/12/30/a-plain-markdown-post/</guid>
-      <description>This is a post written in plain Markdown (*.md) instead of R Markdown (*.Rmd). The major differences are:
- You cannot run any R code in a plain Markdown document, whereas in an R Markdown document, you can embed R code chunks (```{r}); A plain Markdown post is rendered through Blackfriday, and an R Markdown document is compiled by rmarkdown and Pandoc.  There are many differences in syntax between Blackfriday&amp;rsquo;s Markdown and Pandoc&amp;rsquo;s Markdown.</description>
-    </item>
-    
-    <item>
-      <title>Lorem Ipsum</title>
-      <link>http://jackbubala.github.io/2015/01/01/lorem-ipsum/</link>
-      <pubDate>Thu, 01 Jan 2015 13:09:13 -0600</pubDate>
-      
-      <guid>http://jackbubala.github.io/2015/01/01/lorem-ipsum/</guid>
-      <description>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</description>
     </item>
     
   </channel>
