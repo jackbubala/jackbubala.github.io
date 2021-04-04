@@ -62,7 +62,7 @@
 
   <article class="article">
     
-    <span class="article-duration">2 min read</span>
+    <span class="article-duration">6 min read</span>
     
 
     <h1 class="article-title">The Chicago Bears Are Now On The Clock</h1>
@@ -97,6 +97,13 @@ library(ggalt)</code></pre>
 ##   grobX.absoluteGrob      ggplot2
 ##   grobY.absoluteGrob      ggplot2</code></pre>
 <pre class="r"><code>library(ggrepel)
+library(kableExtra)</code></pre>
+<pre><code>## 
+## Attaching package: &#39;kableExtra&#39;</code></pre>
+<pre><code>## The following object is masked from &#39;package:dplyr&#39;:
+## 
+##     group_rows</code></pre>
+<pre class="r"><code>library(formattable)
 
 nflqbs &lt;- read_csv(&quot;~/activenflqbs.csv&quot;)</code></pre>
 <pre><code>## 
@@ -124,15 +131,57 @@ nflqbs &lt;- read_csv(&quot;~/activenflqbs.csv&quot;)</code></pre>
 ##   `Total Passing Yards` = col_double(),
 ##   `Total Rushing Yards` = col_double()
 ## )</code></pre>
-<p>The first thing we’re going to do is take a look at Dalton’s stats so that we can compare it to the rest of his competition.</p>
-<pre class="r"><code>nflqbs %&gt;% 
-  filter(Name==&quot;Andy Dalton&quot;)</code></pre>
-<pre><code>## # A tibble: 1 x 8
-##   `NFL Active Qbs` Name  Team  Division `2020 Passing Y… `2020 Rushing Y…
-##              &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;               &lt;dbl&gt;            &lt;dbl&gt;
-## 1               64 Andy… None  None                 2170              114
-## # … with 2 more variables: `Total Passing Yards` &lt;dbl&gt;, `Total Rushing
-## #   Yards` &lt;dbl&gt;</code></pre>
+<p>The first thing we’re going to do is take a look at Dalton’s stats so that we can compare it to the rest of his competition and make a table out of it.</p>
+<pre class="r"><code>dalton &lt;- nflqbs %&gt;% 
+  filter(Name==&quot;Andy Dalton&quot;)
+dalton %&gt;% kable() %&gt;% 
+  kable_styling() %&gt;% 
+  save_kable(&quot;dalton.pdf&quot;)</code></pre>
+<pre><code>## Note that HTML color may not be displayed on PDF properly.</code></pre>
+<pre><code>## save_kable will have the best result with magick installed.</code></pre>
+<p>As can be seen from the table Dalton has over 30,000 career passing yards and over 1,000 career rushing yards. That is a rare feat, and in fact by filtering out all current quarterbacks who have less than 30,000 career passing yards and 1,000 career rushing yards we find that Dalton is one of only 10 active quarterbacks to have accomplished such a feat, and was one of only 3 who were free agents this offseason.</p>
+<pre class="r"><code>nflqbs %&gt;% filter(`Total Rushing Yards` &gt;= 1000, `Total Passing Yards` &gt;= 30000) %&gt;% 
+  summarise(
+    Name,
+    Team,
+    `Total Passing Yards`,
+    `Total Rushing Yards`
+  )</code></pre>
+<pre><code>## # A tibble: 10 x 4
+##    Name             Team               `Total Passing Yard… `Total Rushing Yard…
+##    &lt;chr&gt;            &lt;chr&gt;                             &lt;dbl&gt;                &lt;dbl&gt;
+##  1 Ben Roethlisber… Pittsburgh Steele…                66105                 1614
+##  2 Aaron Rodgers    Green Bay Packers                 56914                 3556
+##  3 Matt Ryan        Atlanta Falcons                   58439                 1430
+##  4 Tom Brady        Tampa Bay Buccane…                91653                 1176
+##  5 Cam Newton       New England Patri…                33519                 5656
+##  6 Andy Dalton      None                              34637                 1427
+##  7 Ryan Fitzpatrick None                              34977                 2621
+##  8 Matthew Stafford Los Angeles Rams                  46017                 1223
+##  9 Russell Wilson   Seattle Seahawks                  37732                 5033
+## 10 Alex Smith       None                              37395                 2824</code></pre>
+<p>So this puts us in a very good position for finding our next quarterback. That’s a phrase Bears fans don’t hear often but it’s important to be optimistic sometimes. We can play to two strengths here; throwing and running. First, we are going to take a look at college quarterbacks entering the draft this year that have the best arms based off passing yards both this year and throughout their college careers then turn them into two bar charts, one for overall yards and then one for just 2020.</p>
+<pre class="r"><code>careerpassingyards &lt;- collegeqbs %&gt;% filter(`Total Passing Yards` &gt;= 10000)
+ggplot(careerpassingyards, aes(x = reorder(Name, - `Total Passing Yards`), weight = `Total Passing Yards`)) + 
+  geom_bar() +
+  scale_y_continuous(labels = comma) +
+  labs(title = &quot;Top College Quarterbacks by Career Passing Yards&quot;,
+       subtitle = &quot;Trevor Lawrence is on here but who are these guys beating him&quot;,
+       x = &quot;Player&quot;, y = &quot;Career Passing Yards&quot;) +                          
+  theme_minimal()</code></pre>
+<p><img src="http://jackbubala.github.io/2021/04/04/the-chicago-bears-are-now-on-the-clock/index_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<p>For the chart above I filtered out all current draft eligible quarterbacks with less than 10,000 career passing yards. As we can see from the chart there is one big name, Trevor Lawrence, expected by many to be the #1 overall pick, the Bears will likely not have a chance at him. That leaves us with three other names, Sam Ehlinger, Shane Buechele, and Brady White. Sam Ehlinger you might know, he’s been the quarterback at Texas the past four years and helped them beat Georgia in the Sugar Bowl to culminate the 2018 season. Now, who are Shane Buechele and Brady White? They are lesser known names likely because they went to SMU and Memphis respectively. However, as can be seen from the chart they should not be taken likely and if I were Ryan Pace I would most certainly have my eyes on Buechele and White as well as Sam Ehlinger.</p>
+<p>Now it’s time to take a look at stats from just 2020 and see if these 4 names we see here showed last year that they are capable of playing at the highest level during the hardest year.</p>
+<pre class="r"><code>currentpassingyards &lt;- collegeqbs %&gt;% filter(`2020 Passing Yards` &gt;= 3000)
+ggplot(currentpassingyards, aes(x = reorder(Name, - `2020 Passing Yards`), weight = `2020 Passing Yards`)) + 
+  geom_bar() +
+  scale_y_continuous(labels = comma) +
+  labs(title = &quot;Top College Quarterbacks by 2020 Passing Yards&quot;,
+       subtitle = &quot;Trevor Lawrence is on here but who are these guys beating him&quot;,
+       x = &quot;Player&quot;, y = &quot;2020 Passing Yards&quot;) +                          
+  theme_minimal()</code></pre>
+<p><img src="http://jackbubala.github.io/2021/04/04/the-chicago-bears-are-now-on-the-clock/index_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+<p>There’s some more familiar names for you! Lawrence is still on there and has been joined by fellow top-5 pick projection, Zach Wilson from BYU. Mac Jones and Kyle Trask are also on there, you might remember them from their shootout in this year’s SEC Championship game. Sam Ehlinger didn’t make the cut but we see Brady White and Shane Buechele back up here, now this is the tough part. If I were Ryan Pace, and I solely wanted to play to Dalton’s arm, I would take Trask if he’s there; a Power 5 talent with a New Year’s Six win in two appearences and an SEC East division title. However, don’t reach for him, don’t reach when there’s better talent on the board to build the team around, and most important of all, DON’T TRADE UP!! All Bears fans know how that went last time. If we can’t get Trask, I would pick Brady White. White is the much more likely option than Trask and he could go undrafted if not for a team like the Bears seeing his potential. White also has the better resume, having lead Memphis to a New Year’s Six appearance just a year ago and he seems to be a better fit for the Bears system in my opinion.</p>
 
     </div>
   </article>
