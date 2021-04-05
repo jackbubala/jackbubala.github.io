@@ -62,7 +62,7 @@
 
   <article class="article">
     
-    <span class="article-duration">6 min read</span>
+    <span class="article-duration">14 min read</span>
     
 
     <h1 class="article-title">The Chicago Bears Are Now On The Clock</h1>
@@ -87,8 +87,7 @@
 <pre><code>## ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
 ## x dplyr::filter() masks stats::filter()
 ## x dplyr::lag()    masks stats::lag()</code></pre>
-<pre class="r"><code>library(waffle)
-library(ggalt)</code></pre>
+<pre class="r"><code>library(ggalt)</code></pre>
 <pre><code>## Registered S3 methods overwritten by &#39;ggalt&#39;:
 ##   method                  from   
 ##   grid.draw.absoluteGrob  ggplot2
@@ -139,6 +138,7 @@ dalton %&gt;% kable() %&gt;%
   save_kable(&quot;dalton.pdf&quot;)</code></pre>
 <pre><code>## Note that HTML color may not be displayed on PDF properly.</code></pre>
 <pre><code>## save_kable will have the best result with magick installed.</code></pre>
+<p><img src="images/dalton.png" style="width:100.0%" /></p>
 <p>As can be seen from the table Dalton has over 30,000 career passing yards and over 1,000 career rushing yards. That is a rare feat, and in fact by filtering out all current quarterbacks who have less than 30,000 career passing yards and 1,000 career rushing yards we find that Dalton is one of only 10 active quarterbacks to have accomplished such a feat, and was one of only 3 who were free agents this offseason.</p>
 <pre class="r"><code>nflqbs %&gt;% filter(`Total Rushing Yards` &gt;= 1000, `Total Passing Yards` &gt;= 30000) %&gt;% 
   summarise(
@@ -167,21 +167,153 @@ ggplot(careerpassingyards, aes(x = reorder(Name, - `Total Passing Yards`), weigh
   scale_y_continuous(labels = comma) +
   labs(title = &quot;Top College Quarterbacks by Career Passing Yards&quot;,
        subtitle = &quot;Trevor Lawrence is on here but who are these guys beating him&quot;,
-       x = &quot;Player&quot;, y = &quot;Career Passing Yards&quot;) +                          
+       x = &quot;Player&quot;, y = &quot;Career Passing Yards&quot;,
+       caption = &quot;Source: ESPN | By Jack Bubala&quot;) +                          
   theme_minimal()</code></pre>
 <p><img src="http://jackbubala.github.io/2021/04/04/the-chicago-bears-are-now-on-the-clock/index_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
-<p>For the chart above I filtered out all current draft eligible quarterbacks with less than 10,000 career passing yards. As we can see from the chart there is one big name, Trevor Lawrence, expected by many to be the #1 overall pick, the Bears will likely not have a chance at him. That leaves us with three other names, Sam Ehlinger, Shane Buechele, and Brady White. Sam Ehlinger you might know, he’s been the quarterback at Texas the past four years and helped them beat Georgia in the Sugar Bowl to culminate the 2018 season. Now, who are Shane Buechele and Brady White? They are lesser known names likely because they went to SMU and Memphis respectively. However, as can be seen from the chart they should not be taken likely and if I were Ryan Pace I would most certainly have my eyes on Buechele and White as well as Sam Ehlinger.</p>
+<p>For the chart above I filtered out all current draft eligible quarterbacks with less than 10,000 career passing yards. As we can see from the chart there is one big name, Trevor Lawrence, expected by many to be the #1 overall pick, the Bears will likely not have a chance at him. That leaves us with three other names, Sam Ehlinger, Shane Buechele, and Brady White. Sam Ehlinger you might know, he’s been the quarterback at Texas the past four years and helped them beat Georgia in the Sugar Bowl to culminate the 2018 season. Now, who are Shane Buechele and Brady White? They are lesser known names likely because they went to SMU and Memphis respectively. However, as can be seen from the chart they should not be taken lightly and if I were Ryan Pace I would most certainly have my eyes on Buechele and White as well as Sam Ehlinger.</p>
 <p>Now it’s time to take a look at stats from just 2020 and see if these 4 names we see here showed last year that they are capable of playing at the highest level during the hardest year.</p>
 <pre class="r"><code>currentpassingyards &lt;- collegeqbs %&gt;% filter(`2020 Passing Yards` &gt;= 3000)
 ggplot(currentpassingyards, aes(x = reorder(Name, - `2020 Passing Yards`), weight = `2020 Passing Yards`)) + 
   geom_bar() +
   scale_y_continuous(labels = comma) +
   labs(title = &quot;Top College Quarterbacks by 2020 Passing Yards&quot;,
-       subtitle = &quot;Trevor Lawrence is on here but who are these guys beating him&quot;,
-       x = &quot;Player&quot;, y = &quot;2020 Passing Yards&quot;) +                          
+       subtitle = &quot;The SEC leads the pack but the smaller guys aren&#39;t too far behind&quot;,
+       x = &quot;Player&quot;, y = &quot;2020 Passing Yards&quot;,
+       caption = &quot;Source: ESPN | By Jack Bubala&quot;) +                          
   theme_minimal()</code></pre>
 <p><img src="http://jackbubala.github.io/2021/04/04/the-chicago-bears-are-now-on-the-clock/index_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
-<p>There’s some more familiar names for you! Lawrence is still on there and has been joined by fellow top-5 pick projection, Zach Wilson from BYU. Mac Jones and Kyle Trask are also on there, you might remember them from their shootout in this year’s SEC Championship game. Sam Ehlinger didn’t make the cut but we see Brady White and Shane Buechele back up here, now this is the tough part. If I were Ryan Pace, and I solely wanted to play to Dalton’s arm, I would take Trask if he’s there; a Power 5 talent with a New Year’s Six win in two appearences and an SEC East division title. However, don’t reach for him, don’t reach when there’s better talent on the board to build the team around, and most important of all, DON’T TRADE UP!! All Bears fans know how that went last time. If we can’t get Trask, I would pick Brady White. White is the much more likely option than Trask and he could go undrafted if not for a team like the Bears seeing his potential. White also has the better resume, having lead Memphis to a New Year’s Six appearance just a year ago and he seems to be a better fit for the Bears system in my opinion.</p>
+<p>There’s some more familiar names for you! For the chart above I filtered out all draft elibgible quarterbacks who threw less than 3,000 yards this year. Lawrence is still on there and has been joined by fellow top-5 pick projection, Zach Wilson from BYU. Mac Jones and Kyle Trask are also on there, you might remember them from their shootout in this year’s SEC Championship game. Sam Ehlinger didn’t make the cut but we see Brady White and Shane Buechele back up here, now this is the tough part. If I were Ryan Pace, and I solely wanted to play to Dalton’s arm, I would take Trask if he’s there; a Power 5 talent with a New Year’s Six win in two appearences and an SEC East division title. However, don’t reach for him, don’t reach when there’s better talent on the board to build the team around, and most important of all, DON’T TRADE UP!! All Bears fans know how that went last time. If we can’t get Trask, I would pick Brady White. White is the much more likely option than Trask and he could go undrafted if not for a team like the Bears seeing his potential. White also has the better resume, having lead Memphis to a New Year’s Six appearance just a year ago and he seems to be a better fit for the Bears system in my opinion.</p>
+<p>Now we will do the same thing as the last two charts except for changing passing yards to rushing yards. I will once again be making two bar charts, one for career rushing yards and one for 2020 rushing yards.</p>
+<pre class="r"><code>careerrushingyards &lt;- collegeqbs %&gt;% filter(`Total Rushing Yards` &gt;= 1000)
+ggplot(careerrushingyards, aes(x = reorder(Name, - `Total Rushing Yards`), weight = `Total Rushing Yards`)) + 
+  geom_bar() +
+  scale_y_continuous(labels = comma) +
+  labs(title = &quot;Top College Quarterbacks by Career Rushing Yards&quot;,
+       subtitle = &quot;Sam Ehlinger leads the competition by a wide margin&quot;,
+       x = &quot;Player&quot;, y = &quot;Career Rushing Yards&quot;,
+       caption = &quot;Source: ESPN | By Jack Bubala&quot;) +                          
+  theme_minimal()</code></pre>
+<p><img src="http://jackbubala.github.io/2021/04/04/the-chicago-bears-are-now-on-the-clock/index_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+<p>For this chart I filtered out all draft eligible quarterbacks who ran for less than 1,000 yards in their career. As can be seen from the data above Sam Ehlinger leads the pack, and by a lot, nearly 300 yards over Kellen Mond, the Texas A&amp;M quarterback. This list is rounded out with some more familiar names such as Ian Book from Notre Dame, maybe bringing him to Chicago and reuniting him with his old tight end Cole Kmet would be a good idea. Justin Fields is on here as well but will likely be gone by the time the Bears get a chance to select. There’s also Peyton Ramsey, who may sound familiar to Chicago fans but that’s likely because he played 20 miles north in Evanston this year and lead the Wildcats to a Big Ten West Division title. Then there’s Zac Thomas and Trey Lance. Lance played for North Dakota State and is being highly touted as a top player by analysts even being projected to go as high as #3, so the Bears will likely not have a shot at him either.Thomas played for Applachian State, a team who won the Sun Belt in both 2018 and 19.</p>
+<p>Now we will see if these players show up again when we look at the rushing stats from just this year.</p>
+<pre class="r"><code>currentrushingyards &lt;- collegeqbs %&gt;% filter(`2020 Rushing Yards` &gt;= 250)
+ggplot(currentrushingyards, aes(x = reorder(Name, - `2020 Rushing Yards`), weight = `2020 Rushing Yards`)) + 
+  geom_bar() +
+  scale_y_continuous(labels = comma) +
+  labs(title = &quot;Top College Quarterbacks by 2020 Rushing Yards&quot;,
+       subtitle = &quot;Now it&#39;s Ian Book who leads the competition by a wide margin&quot;,
+       x = &quot;Player&quot;, y = &quot;2020 Rushing Yards&quot;,
+       caption = &quot;Source: ESPN | By Jack Bubala&quot;) +
+  theme_minimal()</code></pre>
+<p><img src="http://jackbubala.github.io/2021/04/04/the-chicago-bears-are-now-on-the-clock/index_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
+<p>For this chart above, I filtered out all draft eligible quarterbacks who rushed for less than 250 yards this year. Ian Book now leads the field and by a wide margin. Fields follows and Ehlinger comes after him who we saw leading the last chart. Thomas and Mond come next followed by Ramsey and then we see the re-appearance of Zach Wilson. Wilson is likely only on here because Lance only played one game this fall before Lance declared for the draft as North Dakota State is in the FCS. Now again the tough part, who would I pick. I think that based off running alone Sam Ehlinger would be the best pick coming just in front of Ian Book. If you’re a Notre Dame fan like myself you know that Book is not good in the big game and that will hurt him in the NFL. Ehlinger appears more draft-ready to be and played very well in the Senior Bowl making him my pick if I were drafting just based on rushing.</p>
+<p>Now, before I compile all this data together and make my projection as to who Ryan Pace should draft to run the offense after Andy Dalton, I will first go over that initial decision, to sign Andy Dalton. As I mentioned previously there were only three free agent quarterbacks, including Dalton, who had amassed over 30,000 passing yards and over 1,000 rushing yards in their careers. I will again be creating two charts, but this time they will be bubble charts, and I will be showing where those three quarterbacks rank among current quarterbacks, who were free agents this year, who have either thrown for over 30,000 yards or rushed for over 1,000 yards respectively while also specifically highlighting the three who did both: Andy Dalton, Alex Smith, and Ryan Fitzpatrick.</p>
+<pre class="r"><code>fitzpatrick &lt;- nflqbs %&gt;% filter(Name==&quot;Ryan Fitzpatrick&quot;)
+smith &lt;- nflqbs %&gt;% filter(Name==&quot;Alex Smith&quot;)
+passing &lt;- nflqbs %&gt;% filter(`Total Passing Yards` &gt;= 30000, `Team`==&quot;None&quot;)
+ggplot() + 
+  geom_point(
+    data=passing, 
+    aes(x=`Total Passing Yards`, y=`2020 Passing Yards`, size=`Total Passing Yards`), 
+    color=&quot;grey&quot;, 
+    alpha=.5) + 
+  geom_point(
+    data=dalton, 
+    aes(x=`Total Passing Yards`, y=`2020 Passing Yards`, size=`Total Passing Yards`), 
+    color=&quot;blue&quot;) + 
+  geom_point(
+    data = fitzpatrick,
+    aes(x=`Total Passing Yards`, y=`2020 Passing Yards`, size=`Total Passing Yards`),
+    color=&quot;orange&quot;) +
+  geom_point(
+    data = smith,
+    aes(x=`Total Passing Yards`, y=`2020 Passing Yards`, size=`Total Passing Yards`),
+    color=&quot;red&quot;) +
+  geom_vline(xintercept = 5.820543) + 
+  geom_hline(yintercept = 5.673263) + 
+  geom_text_repel(
+    data=passing, 
+    aes(x=`Total Passing Yards`, y=`2020 Passing Yards`, label=Name)
+  ) +
+  labs(title=&quot;NFL Quarterbacks by Passing Yards&quot;, subtitle=&quot;All the good quarterbacks are signed so we get what&#39;s left&quot;, caption=&quot;Source: ProFootballReference | By Jack Bubala&quot;)  + theme_minimal() + 
+  theme(
+    plot.title = element_text(size = 16, face = &quot;bold&quot;),
+    axis.title = element_text(size = 10), 
+    plot.subtitle = element_text(size=12),
+    plot.caption = element_text(size=8),
+    panel.grid.minor = element_blank()
+    )</code></pre>
+<p><img src="http://jackbubala.github.io/2021/04/04/the-chicago-bears-are-now-on-the-clock/index_files/figure-html/unnamed-chunk-8-1.png" width="672" />
+Looks like we only had four options. The surprising part of this is likely that the largest bubble didn’t even belong to someone on our radar, Joe Flacco. Flacco’s problem however is that he isn’t much of an agile guy. Now, going back to our main three we see something troubling, Dalton has the smallest circle. Based off these stats, it doesn’t seem that Pace made the right choice, shocker. Smith appears to be the man for the job. Let’s see if that holds up through the rushing stats.</p>
+<pre class="r"><code>rushing &lt;- nflqbs %&gt;% filter(`Total Rushing Yards` &gt;= 1000, `Team`==&quot;None&quot;)
+ggplot() + 
+  geom_point(
+    data=rushing, 
+    aes(x=`Total Rushing Yards`, y=`2020 Rushing Yards`, size=`Total Rushing Yards`), 
+    color=&quot;grey&quot;, 
+    alpha=.5) + 
+  geom_point(
+    data=dalton, 
+    aes(x=`Total Rushing Yards`, y=`2020 Rushing Yards`, size=`Total Rushing Yards`), 
+    color=&quot;blue&quot;) + 
+  geom_point(
+    data = fitzpatrick,
+    aes(x=`Total Rushing Yards`, y=`2020 Rushing Yards`, size=`Total Rushing Yards`),
+    color=&quot;orange&quot;) +
+  geom_point(
+    data = smith,
+    aes(x=`Total Rushing Yards`, y=`2020 Rushing Yards`, size=`Total Rushing Yards`),
+    color=&quot;red&quot;) +
+  geom_vline(xintercept = 5.820543) + 
+  geom_hline(yintercept = 5.673263) + 
+  geom_text_repel(
+    data=rushing, 
+    aes(x=`Total Rushing Yards`, y=`2020 Rushing Yards`, label=Name)
+  ) +
+  labs(title=&quot;NFL Quarterbacks by Rushing Yards&quot;, subtitle=&quot;All the good quarterbacks are signed so we get what&#39;s left&quot;, caption=&quot;Source: ProFootballReference | By Jack Bubala&quot;)  + theme_minimal() + 
+  theme(
+    plot.title = element_text(size = 16, face = &quot;bold&quot;),
+    axis.title = element_text(size = 10), 
+    plot.subtitle = element_text(size=12),
+    plot.caption = element_text(size=8),
+    panel.grid.minor = element_blank()
+    )</code></pre>
+<p><img src="http://jackbubala.github.io/2021/04/04/the-chicago-bears-are-now-on-the-clock/index_files/figure-html/unnamed-chunk-9-1.png" width="672" />
+Once again, Dalton’s circle is the smallest of those highlighted, bad news. While Dalton was a better choice than the other choices who can’t seem to throw; Trubisky, RG3, McCown, Taylor, Bortles, and Winston, he still pales in comparison to Fitzpatrick and Smith. Now, I will cut Pace some slack for not signing Fitzpatrick, as he was picked up by Washington while the Bears were still pursuing Wilson, I will not however forgive Pace for not signing Alex Smith. Yes, Smith is coming off a gruesome leg injury but he won Comeback Player of the Year and that is no small task. There’s one more reason as to why Smith could’ve been chosen solely based off his arm, his last mentee, Ryan Pace’s nightmare, Patrick Mahomes. If Smith was able to usher in Mahomes and help shape him into the player he is, who knows what he’d be able to do with whoever the Bears decide to draft under center. Speaking of which, let’s find out who Smith’s perfect pairing would have been.</p>
+<p>For this part I will create a stacked bar chart of the draft eligible players with over 8,000 passing yards and over 500 rushing yards that I think would’ve best learned under Smith’s direction and I will pick one from there to be drafted by the Bears.</p>
+<pre class="r"><code>thepick &lt;- collegeqbs %&gt;% 
+  filter(`Total Passing Yards` &gt;= 8000, `Total Rushing Yards` &gt;= 500) %&gt;% 
+  summarise(
+    Name,
+    Team,
+    `Total Passing Yards`,
+    `Total Rushing Yards`
+  )
+thepickwide &lt;- thepick %&gt;% 
+  pivot_longer(
+    cols=starts_with(&quot;Total&quot;), 
+    names_to=&quot;Type&quot;, 
+    values_to=&quot;Yards&quot;)
+  ggplot(thepickwide, aes(x=reorder(Name, Yards), weight=Yards, fill=Type)) + 
+  geom_bar() + 
+  coord_flip() +
+  labs(
+    x = &quot;Player&quot;,
+    y = &quot;Total Offensive Yards&quot;,
+    title = &quot;Draft Eligible Quarterbacks Total Offensive Yards&quot;,
+    subtitle = &quot;Ehlinger doesn&#39;t even let it be close&quot;,
+    source = &quot;ESPN&quot;
+  ) +
+  theme_minimal() + 
+  theme(
+    plot.title = element_text(size = 16, face = &quot;bold&quot;),
+    plot.subtitle = element_text(size = 10),
+    axis.title = element_text(size = 8),
+    panel.grid.minor = element_blank()
+  )</code></pre>
+<p><img src="http://jackbubala.github.io/2021/04/04/the-chicago-bears-are-now-on-the-clock/index_files/figure-html/unnamed-chunk-10-1.png" width="672" />
+The pick is in: Sam Ehlinger. Ehlinger is not projected to go very highly in the draft making this selection even better as Pace can build a team around him, help retool the defense, and get a solid replacement for Kyle Long. The icing on the cake, Tom Herman. Herman was the football coach at the University of Texas, Ehlinger’s school, for the past 4 years all while Ehlinger was there. Herman was hired this offseason as an assistant coach by the Chicago Bears. Many analysts, including Adam Schefter, were puzzled by the move wondering what it could be. Now, it seems apparent. Herman is going to get a chance to mentor Ehlinger again, now on a much bigger stage. You thought playing for Texas was hard, just wait unti you step inside Soldier Field. Bears fans will boo their own offense with no mercy. Pace knows this, but he also has a coach on his staff who knows Sam better than anyone. That is why I believe Pace will finally make the right call and pick the guy. He can be an underdog and doubted which Pace seems to like, but he will be the guy. The stats say it and hopefully Pace will too. April 30th or May 1st, Sam Ehlinger will be drafted. Hopefully, he can keep wearing the orange he’s worn for the past four years but this time in Chicago. This is Pace’s last shot. If the Bears don’t have a glimmer of hope by the end of 2022 if not 2021, then Pace will likely be fired. He already messed up in choosing Dalton over Smith, now make it right and prove to this city and most importantly to yourself that you’re not just a guy who can draft a defense and was double-doinked out of Chicago.</p>
 
     </div>
   </article>
