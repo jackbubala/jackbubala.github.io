@@ -1,0 +1,121 @@
+
+<script src="{{< blogdown/postref >}}index_files/header-attrs/header-attrs.js"></script>
+
+
+<table>
+<tbody>
+<tr class="odd">
+<td>itle: We Want…UCF?</td>
+</tr>
+<tr class="even">
+<td>uthor: Jack Bubala</td>
+</tr>
+<tr class="odd">
+<td>ate: ‘2021-04-22’</td>
+</tr>
+<tr class="even">
+<td>lug: we-want-ucf</td>
+</tr>
+<tr class="odd">
+<td>ategories:</td>
+</tr>
+<tr class="even">
+<td>- R</td>
+</tr>
+<tr class="odd">
+<td>ags:</td>
+</tr>
+<tr class="even">
+<td>- Football</td>
+</tr>
+<tr class="odd">
+<td>- Project</td>
+</tr>
+<tr class="even">
+<td>- College</td>
+</tr>
+<tr class="odd">
+<td>- College Football</td>
+</tr>
+</tbody>
+</table>
+<p>We want Bama! That has been the call of underdog teams for years, ever since Nick Saban took over the Alabama Crimson Tide football team and made them into the the powerhouse they are today. Watch any episode of College Gameday from the past few years and you’re bound to see someone holding a sign claiming the school hosting Gameday could hang with the roll with the Tide. However, this isn’t about Alabama this is about the teams who haven’t been able to find success and the underdog who never got their chance to show the world just how good they were on college football’s biggest stage.</p>
+<p>Around late 2017 those calls for Bama saw a bit of a dip as a team from Orlando was making its name as the best team in the state beating out the legendary programs of Florida, Florida State, and Miami. Now when you watched Gameday, signs shifted from We Want Bama to We Want UCF. For this project I will be looking at the combined 25-1 run of UCF in 2017 and 2018 and see if they truly were good enough to make the College Football Playoffs. I will also look at 2017 Oklahoma, 2018 Oklahoma, and 2018 Notre Dame to see if those three teams deserved the playoff spots they got over the Knights of UCF.</p>
+<pre class="r"><code>library(tidyverse)</code></pre>
+<pre><code>## ── Attaching packages ─────────────────────────────────────── tidyverse 1.3.0 ──</code></pre>
+<pre><code>## ✓ ggplot2 3.3.3     ✓ purrr   0.3.4
+## ✓ tibble  3.0.4     ✓ dplyr   1.0.4
+## ✓ tidyr   1.1.2     ✓ stringr 1.4.0
+## ✓ readr   1.4.0     ✓ forcats 0.5.1</code></pre>
+<pre><code>## ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+## x dplyr::filter() masks stats::filter()
+## x dplyr::lag()    masks stats::lag()</code></pre>
+<pre class="r"><code>library(ggalt)</code></pre>
+<pre><code>## Registered S3 methods overwritten by &#39;ggalt&#39;:
+##   method                  from   
+##   grid.draw.absoluteGrob  ggplot2
+##   grobHeight.absoluteGrob ggplot2
+##   grobWidth.absoluteGrob  ggplot2
+##   grobX.absoluteGrob      ggplot2
+##   grobY.absoluteGrob      ggplot2</code></pre>
+<pre class="r"><code>library(ggrepel)
+library(kableExtra)</code></pre>
+<pre><code>## 
+## Attaching package: &#39;kableExtra&#39;</code></pre>
+<pre><code>## The following object is masked from &#39;package:dplyr&#39;:
+## 
+##     group_rows</code></pre>
+<pre class="r"><code>library(formattable)
+
+firstyearoffense &lt;- read_csv(&quot;~/2017offense.csv&quot;)</code></pre>
+<pre><code>## 
+## ── Column specification ────────────────────────────────────────────────────────
+## cols(
+##   Team = col_character(),
+##   Games = col_double(),
+##   `Rushing Yards` = col_double(),
+##   `Passing Yards` = col_double(),
+##   Plays = col_double(),
+##   `Total Yards` = col_double(),
+##   `Yards Per Play` = col_double(),
+##   `Yards Per Game` = col_double()
+## )</code></pre>
+<pre class="r"><code>firstyeardefense &lt;- read_csv(&quot;~/2017defense.csv&quot;)</code></pre>
+<pre><code>## 
+## ── Column specification ────────────────────────────────────────────────────────
+## cols(
+##   Team = col_character(),
+##   Games = col_double(),
+##   `Rushing Yards` = col_double(),
+##   `Passing Yards` = col_double(),
+##   Plays = col_double(),
+##   `Total Yards` = col_double(),
+##   `Yards Per Play` = col_double(),
+##   `Yards Per Game` = col_double()
+## )</code></pre>
+<pre class="r"><code>secondyearoffense &lt;- read_csv(&quot;~/2018offense.csv&quot;)</code></pre>
+<pre><code>## 
+## ── Column specification ────────────────────────────────────────────────────────
+## cols(
+##   Team = col_character(),
+##   Games = col_double(),
+##   `Rushing Yards` = col_double(),
+##   `Passing Yards` = col_double(),
+##   Plays = col_double(),
+##   `Total Yards` = col_double(),
+##   `Yards Per Play` = col_double(),
+##   `Yards Per Game` = col_double()
+## )</code></pre>
+<pre class="r"><code>secondyeardefense &lt;- read_csv(&quot;~/2018defense.csv&quot;)</code></pre>
+<pre><code>## 
+## ── Column specification ────────────────────────────────────────────────────────
+## cols(
+##   Team = col_character(),
+##   Games = col_double(),
+##   `Rushing Yards` = col_double(),
+##   `Passing Yards` = col_double(),
+##   Plays = col_double(),
+##   `Total Yards` = col_double(),
+##   `Yards Per Play` = col_double(),
+##   `Yards Per Game` = col_double()
+## )</code></pre>
