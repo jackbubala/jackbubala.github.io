@@ -215,8 +215,8 @@ ggplot() +
   geom_point(data=oklahomafirstyeard, aes(x=`Passing Yards`, y=`Rushing Yards`), color=&quot;red&quot;) +
   geom_hline(yintercept=2125.2, color=&quot;black&quot;) +
   geom_vline(xintercept=2846.3, color=&quot;black&quot;) +
-  geom_text_repel(data=ucffirstyeard, aes(x=`Passing Yards`, y=`Rushing Yards`, label=Team))+
-  geom_text_repel(data=oklahomafirstyeard, aes(x=`Passing Yards`, y=`Rushing Yards`, label=Team))+
+  geom_text_repel(data=ucffirstyeard, aes(x=`Passing Yards`, y=`Rushing Yards`, label=Team), y=1900, x=3350)+
+  geom_text_repel(data=oklahomafirstyeard, aes(x=`Passing Yards`, y=`Rushing Yards`, label=Team), y=2250, x=3400)+
   labs(x= &quot;Passing Yards Surrendered&quot;, y=&quot;Rushing Yards Surrendered&quot;,
        title = &quot;UCF Played Weak Defense Against Weak Opponents&quot;,
        subtitle = &quot;The Knights were just above average at stopping the run, but gave up a lot through the air&quot;,
