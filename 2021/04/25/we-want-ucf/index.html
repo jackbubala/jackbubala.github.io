@@ -215,8 +215,8 @@ ggplot() +
   geom_point(data=oklahomafirstyeard, aes(x=`Passing Yards`, y=`Rushing Yards`), color=&quot;red&quot;) +
   geom_hline(yintercept=2125.2, color=&quot;black&quot;) +
   geom_vline(xintercept=2846.3, color=&quot;black&quot;) +
-  geom_text_repel(data=ucffirstyeard, aes(x=`Passing Yards`, y=`Rushing Yards`, label=Team), x=3450, y=2100) +
-  geom_text_repel(data=oklahomafirstyeard, aes(x=`Passing Yards`, y=`Rushing Yards`, label=Team), x=3600, y=2300 ) +
+  geom_text_repel(data=ucffirstyeard, aes(x=`Passing Yards`, y=`Rushing Yards`, label=Team)) +
+  geom_text_repel(data=oklahomafirstyeard, aes(x=`Passing Yards`, y=`Rushing Yards`, label=Team)) +
   labs(x= &quot;Passing Yards Surrendered&quot;, y=&quot;Rushing Yards Surrendered&quot;,
        title = &quot;UCF Played Weak Defense Against Weak Opponents&quot;,
        subtitle = &quot;The Knights were just above average at stopping the run, but gave up a lot through the air&quot;,
@@ -246,7 +246,7 @@ ggplot() +
   geom_vline(xintercept=2932.4, color=&quot;black&quot;) +
   geom_text_repel(data=ucfsecondyear, aes(x=`Passing Yards`, y=`Rushing Yards`, label=Team)) +
   geom_text_repel(data=oklahomasecondyear, aes(x=`Passing Yards`, y=`Rushing Yards`, label=Team)) +
-  geom_text_repel(data=notredame, aes(x=`Passing Yards`, y=`Rushing Yards`, label=Team)) +
+  geom_text_repel(data=notredame, aes(x=`Passing Yards`, y=`Rushing Yards`, label=Team), x=3500, y=2300) +
   labs(x= &quot;Passing Yards&quot;, y=&quot;Rushing Yards&quot;,
        title = &quot;The Knights Charged Through The Competition&quot;,
        subtitle = &quot;UCF got significantly better at running the ball in 2018, however their passing receded&quot;,
@@ -285,7 +285,7 @@ ggplot() +
     axis.title = element_text(size = 10),
     axis.text = element_text(size = 7, color = &quot;black&quot;))</code></pre>
 <p><img src="/post/2021-04-25-we-want-ucf/wewantucf_files/figure-html/unnamed-chunk-5-1.png" width="672" />
-The Irish made up for their bad offense with good defense. They were well above average in both stopping the run and the pass. Oklahoma got better at stopping the run, but struggled mightily in their secondary, surrendering the most passing yards of any team in 2018, and by a wide margin. UCF improved in their pass defense but gave up a lot more on the ground likely due to the loss of Shaquem Griffin. Through these four charts it’s very hard to tell whether or not UCF deserved a playoff spot in either year. It’s important to consider though that we are only looking at passing and rushing yards in these plots, and two factors just isn’t a high enough number to consider the overall ability of a team. So, I will now be comparing UCF’s 2017 team vs their 2018 team using the two t’s; touchdowns and takeaways. I will then take a closer look at one of those years, whichever year I deem to be their better year, and will determine whether they deserved to make the playoffs over the team or teams that arguably stole the Knights’ spot. For this first chart, I will be using stacked bar chart to compare the two squads</p>
+The Irish made up for their bad offense with good defense. They were well above average in both stopping the run and the pass. Oklahoma got better at stopping the run, but struggled mightily in their secondary, surrendering the most passing yards of any team in 2018, and by a wide margin. UCF improved in their pass defense but gave up a lot more on the ground likely due to the loss of Shaquem Griffin. Through these four charts it’s very hard to tell whether or not UCF deserved a playoff spot in either year. It’s important to consider though that we are only looking at passing and rushing yards in these plots, and two factors just isn’t a high enough number to consider the overall ability of a team. So, I will now be comparing UCF’s 2017 team vs their 2018 team using the two t’s; touchdowns and takeaways. I will then take a closer look at one of those years, whichever year I deem to be their better year, and will determine whether they deserved to make the playoffs over the team or teams that arguably stole the Knights’ spot. For this first chart, I will be using stacked bar chart to compare the two squads.</p>
 <pre class="r"><code>ucfvs &lt;- bubbleteams %&gt;% filter(School == &quot;UCF&quot;) %&gt;% 
   group_by(School, Year) %&gt;% 
   summarise(
@@ -340,7 +340,7 @@ ggplot()+
   geom_hline(yintercept=5.6)+
   geom_text_repel(
     data=oud,
-    aes(x=`Yards Per Game`, y=`Yards Per Play`, label=Team))+
+    aes(x=`Yards Per Game`, y=`Yards Per Play`, label=Team), x=360)+
   geom_text_repel(
     data=ucfd,
     aes(x=`Yards Per Game`, y=`Yards Per Play`, label=Team))+
