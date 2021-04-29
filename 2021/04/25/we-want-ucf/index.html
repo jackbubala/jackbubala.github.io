@@ -246,7 +246,7 @@ ggplot() +
   geom_vline(xintercept=2932.4, color=&quot;black&quot;) +
   geom_text_repel(data=ucfsecondyear, aes(x=`Passing Yards`, y=`Rushing Yards`, label=Team)) +
   geom_text_repel(data=oklahomasecondyear, aes(x=`Passing Yards`, y=`Rushing Yards`, label=Team)) +
-  geom_text_repel(data=notredame, aes(x=`Passing Yards`, y=`Rushing Yards`, label=Team), x=3500, y=2300) +
+  geom_text_repel(data=notredame, aes(x=`Passing Yards`, y=`Rushing Yards`, label=Team)) +
   labs(x= &quot;Passing Yards&quot;, y=&quot;Rushing Yards&quot;,
        title = &quot;The Knights Charged Through The Competition&quot;,
        subtitle = &quot;UCF got significantly better at running the ball in 2018, however their passing receded&quot;,
@@ -340,7 +340,7 @@ ggplot()+
   geom_hline(yintercept=5.6)+
   geom_text_repel(
     data=oud,
-    aes(x=`Yards Per Game`, y=`Yards Per Play`, label=Team), x=360)+
+    aes(x=`Yards Per Game`, y=`Yards Per Play`, label=Team))+
   geom_text_repel(
     data=ucfd,
     aes(x=`Yards Per Game`, y=`Yards Per Play`, label=Team))+
